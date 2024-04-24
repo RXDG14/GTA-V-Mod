@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D16D6546-B9E5-4B94-A3B2-8DD901D0EC74}|GTAV_Mod_V1\\GTAV_Mod_V1.csproj|d:\\games\\gta_modding\\mod_scripts\\gtav_mod_v1\\gtav_mod_v1\\mod_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D16D6546-B9E5-4B94-A3B2-8DD901D0EC74}|GTAV_Mod_V1\\GTAV_Mod_V1.csproj|solutionrelative:gtav_mod_v1\\mod_v1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GTAV_Mod_V1||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D16D6546-B9E5-4B94-A3B2-8DD901D0EC74}|GTAV_Mod_V1\\GTAV_Mod_V1.csproj|d:\\games\\gta_modding\\mod_scripts\\gtav_mod_v1\\gtav_mod_v1\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|1e78f8db-6c07-4d61-a18f-7514010abd56"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GTAV_Mod_V1",
+              "DocumentMoniker": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
+              "RelativeDocumentMoniker": "GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
+              "ToolTip": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
+              "RelativeToolTip": "GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-24T20:35:13.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mod_v1.cs",
+              "DocumentMoniker": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTAV_Mod_V1\\mod_v1.cs",
+              "RelativeDocumentMoniker": "GTAV_Mod_V1\\mod_v1.cs",
+              "ToolTip": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTAV_Mod_V1\\mod_v1.cs",
+              "RelativeToolTip": "GTAV_Mod_V1\\mod_v1.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACEAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T19:34:06.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
