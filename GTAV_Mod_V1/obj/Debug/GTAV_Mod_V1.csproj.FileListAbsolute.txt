@@ -6,3 +6,10 @@ D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.c
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTAV_Mod_V1\obj\Debug\GTAV_Mod.86F14542.Up2Date
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.dll
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.pdb
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\GTAV_Mod_V1.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\GTAV_Mod_V1.pdb
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.csproj.AssemblyReference.cache
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.csproj.CoreCompileInputs.cache
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod.86F14542.Up2Date
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.pdb
