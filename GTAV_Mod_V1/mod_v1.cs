@@ -33,8 +33,12 @@ public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your pro
             playerPos = Game.Player.Character.Position;
             canTeleport = true;
             Game.Player.Character.CanRagdoll = true;
-            //playerHeading = Game.Player.Character.Heading;
-
+            //Vehicle playerVehicle = Game.Player.Character.CurrentVehicle;
+            // Pass in the Hash name and the parameters listed on Native DB.
+            //Function.Call(Hash.SET_VEHICLE_RADIO_ENABLED, Game.Player.Character.CurrentVehicle, false);
+            Function.Call(Hash.ADD_EXPLOSION, Game.Player.Character.Position.X + 10f, Game.Player.Character.Position.Y, Game.Player.Character.Position.Z, 2, 3f, true, false, 1f, false);
+            Function.Call(Hash.SET_CLOCK_TIME,12, 34, 56);
+            Notification.Show("Cash?");
         }
         if (e.KeyCode == Keys.F9 && canTeleport)// teleport
         {
