@@ -1,0 +1,11 @@
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\GTAV_Mod_V1.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\GTAV_Mod_V1.pdb
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\LemonUI.SHVDN3.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\ScriptHookVDotNet3.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\LemonUI.SHVDN3.xml
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\x86\Debug\ScriptHookVDotNet3.xml
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\x86\Debug\GTAV_Mod_V1.csproj.AssemblyReference.cache
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\x86\Debug\GTAV_Mod_V1.csproj.CoreCompileInputs.cache
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\x86\Debug\GTAV_Mod.86F14542.Up2Date
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\x86\Debug\GTAV_Mod_V1.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\x86\Debug\GTAV_Mod_V1.pdb

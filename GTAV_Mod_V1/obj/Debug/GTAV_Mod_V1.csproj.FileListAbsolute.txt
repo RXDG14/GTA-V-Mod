@@ -13,3 +13,7 @@ D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTA
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod.86F14542.Up2Date
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.dll
 D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\obj\Debug\GTAV_Mod_V1.pdb
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\LemonUI.SHVDN3.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\ScriptHookVDotNet3.dll
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\LemonUI.SHVDN3.xml
+D:\Games\GTA_Modding\Mod_Scripts\GTAV_Mod_V1\GTA-V-Mod\GTAV_Mod_V1\bin\Debug\ScriptHookVDotNet3.xml

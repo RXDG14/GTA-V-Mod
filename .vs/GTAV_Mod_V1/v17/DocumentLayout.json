@@ -8,6 +8,9 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|GTAV_Mod_V1||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D16D6546-B9E5-4B94-A3B2-8DD901D0EC74}|GTAV_Mod_V1\\GTAV_Mod_V1.csproj|d:\\games\\gta_modding\\mod_scripts\\gtav_mod_v1\\gta-v-mod\\gtav_mod_v1\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,9 +34,9 @@
               "RelativeDocumentMoniker": "GTAV_Mod_V1\\mod_v1.cs",
               "ToolTip": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTA-V-Mod\\GTAV_Mod_V1\\mod_v1.cs",
               "RelativeToolTip": "GTAV_Mod_V1\\mod_v1.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAAB8AAAAJAAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAFwAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T19:34:06.35Z",
+              "WhenOpened": "2024-04-29T20:38:26.534Z",
               "EditorCaption": ""
             },
             {
@@ -45,7 +48,8 @@
               "ToolTip": "D:\\Games\\GTA_Modding\\Mod_Scripts\\GTAV_Mod_V1\\GTA-V-Mod\\GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
               "RelativeToolTip": "GTAV_Mod_V1\\GTAV_Mod_V1.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-04-24T20:35:13.657Z"
+              "WhenOpened": "2024-04-30T08:36:03.221Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
