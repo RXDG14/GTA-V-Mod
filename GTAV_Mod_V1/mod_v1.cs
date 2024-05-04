@@ -28,9 +28,7 @@ public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your pro
     private void OnTick(object sender, EventArgs e)
     {
         pool.Process();
-        
     }
-
 
     private void OnKeyDown(object sender, KeyEventArgs e)
     {
@@ -45,19 +43,33 @@ public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your pro
         
     }
 
+    void ABCD()
+    {
+        int a = 0;
+        NativeItem regularItem = new NativeItem("Regular Item", "This is a regular NativeItem, you can only activate it.");
+        menu.Add(regularItem);
+        menu.ItemActivated += (sender, e) => {
+            if (e.Item == regularItem)
+            {
+                a++;
+                Notification.Show(a.ToString());
+            }
+        };
+    }
+
     protected void CreateMenu()
     {
-        NativeItem regularItem = new NativeItem("Regular Item", "This is a regular NativeItem, you can only activate it.");
+        //NativeItem regularItem = new NativeItem("Regular Item", "This is a regular NativeItem, you can only activate it.");
         NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Checkbox Item", false);
         NativeDynamicItem<int> dynamicItem = new NativeDynamicItem<int>("Dynamic Item", 10);
 
-        menu.Add(submenu);
-        menu.Add(regularItem);
+        //menu.Add(regularItem);
         menu.Add(checkboxItem);
         menu.Add(dynamicItem);
 
         pool.Add(menu);
-        pool.Add(submenu);
         menu.Visible = true;
+
+        ABCD();
     }
 }
