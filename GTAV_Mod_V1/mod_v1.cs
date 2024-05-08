@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data.Common;
 using System.Drawing;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using GTA;
 using GTA.Math;
@@ -11,18 +13,18 @@ using LemonUI.Menus;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
-public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your program.
+public class mod_v1 : Script
 {
     private ObjectPool pool = new ObjectPool();
-    private readonly NativeMenu menu = new NativeMenu("LemonUI", "Welcome to LemonUI!");
+    private readonly NativeMenu menu = new NativeMenu("Mod_v1");
 
-    public mod_v1() // Change "YouTubeTutorial" to the name of your program.
+    public mod_v1()
     {
+        CreateMenu();
+
         Tick += OnTick;
         KeyUp += OnKeyUp;
         KeyDown += OnKeyDown;
-
-        CreateMenu();
     }
 
     private void OnTick(object sender, EventArgs e)
@@ -43,16 +45,32 @@ public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your pro
         
     }
 
-    void ABCD()
+    void TeleportPlayer()
     {
-        int a = 0;
-        NativeItem regularItem = new NativeItem("Regular Item", "This is a regular NativeItem, you can only activate it.");
+        NativeItem regularItem = new NativeItem("Teleport to map marker");
         menu.Add(regularItem);
         menu.ItemActivated += (sender, e) => {
             if (e.Item == regularItem)
             {
-                a++;
-                Notification.Show(a.ToString());
+                var blip = World.WaypointBlip;
+                if(blip != null)
+                {
+                    Game.Player.Character.Position = blip.Position;
+                }
+            }
+        };
+    }
+
+    void Explode()
+    {
+        NativeItem regularItem = new NativeItem("Explosion");
+        menu.Add(regularItem);
+        menu.ItemActivated += (sender, e) => {
+            if (e.Item == regularItem)
+            {
+                //Vector3 playerPos = Game.Player.Character.ForwardVector;
+                //playerPos.X = playerPos.X + 2f;
+                World.AddExplosion(playerPos, ExplosionType.StickyBomb, 20f, 2f, null, true, false);
             }
         };
     }
@@ -70,6 +88,7 @@ public class mod_v1 : Script // Change "YouTubeTutorial" to the name of your pro
         pool.Add(menu);
         menu.Visible = true;
 
-        ABCD();
+        TeleportPlayer();
+        Explode();
     }
 }
