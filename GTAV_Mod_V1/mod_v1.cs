@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Drawing;
 using System.Linq;
@@ -70,25 +71,89 @@ public class mod_v1 : Script
             {
                 //Vector3 playerPos = Game.Player.Character.ForwardVector;
                 //playerPos.X = playerPos.X + 2f;
-                World.AddExplosion(playerPos, ExplosionType.StickyBomb, 20f, 2f, null, true, false);
+                Vector3 playerPos = Game.Player.Character.Position;
+                Vector3 playerFront = Game.Player.Character.FrontPosition;
+                World.AddExplosion(playerFront, ExplosionType.StickyBomb, 20f, 2f, null, true, false);
+            }
+        };
+    }
+
+    void AddWeapons()
+    {
+        List<Weapon> weaponsList = new List<Weapon>();
+        NativeItem regularItem = new NativeItem("Add Weapons");
+        menu.Add(regularItem);
+        menu.ItemActivated += (sender, e) => {
+            if (e.Item == regularItem)
+            {
+                Game.Player.Character.Weapons.RemoveAll();
+                Weapon weapon1 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.RPG, 2, false, true);
+                weaponsList.Add(weapon1);
+                Weapon weapon2 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.Grenade, 10, false, true);
+                weaponsList.Add (weapon2);
+                Weapon weapon3 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.CombatMGMk2, 10, false, true);
+                weaponsList.Add(weapon3);
+                Weapon weapon4 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.HeavySniperMk2, 999999, false, true);
+                weaponsList.Add(weapon4);
+                Weapon weapon5 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.AssaultrifleMk2, 999999, false, true);
+                weaponsList.Add(weapon5);
+                Weapon weapon6 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.PumpShotgunMk2, 999999, false, true);
+                weaponsList.Add(weapon6);
+                Weapon weapon7 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.GrenadeLauncher, 999999, false, true);
+                weaponsList.Add(weapon7);
+                Weapon weapon8 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.SpecialCarbineMk2, 999999, false, true);
+                weaponsList.Add(weapon8);
+                for (int i = 0; i < weaponsList.Count; i++)
+                {
+                    weaponsList[i].InfiniteAmmo = true;
+                    weaponsList[i].InfiniteAmmoClip = true;
+                }
+            }
+        };
+    }
+
+    void ResetWantedLevel()
+    {
+        NativeItem regularItem = new NativeItem("Reset wanted level");
+        menu.Add(regularItem);
+        menu.ItemActivated += (sender, e) => {
+            if (e.Item == regularItem)
+            {
+                Game.Player.WantedLevel = 0;
+            }
+        };
+    }
+
+    void InvinciblePlayer()
+    {
+        NativeCheckboxItem checkboxItem = new NativeCheckboxItem("God mode/unlimited health");
+        menu.Add(checkboxItem);
+        checkboxItem.Activated += (sender, e) =>
+        {
+            if(checkboxItem.Checked)
+            {
+                Notification.Hide(0);
+                Game.Player.Character.IsInvincible = true;
+                Notification.Show("God mode Activated");
+            }
+            else
+            { 
+                Notification.Hide(0);
+                Game.Player.Character.IsInvincible = false;
+                Notification.Show("God mode Deactivated");
             }
         };
     }
 
     protected void CreateMenu()
     {
-        //NativeItem regularItem = new NativeItem("Regular Item", "This is a regular NativeItem, you can only activate it.");
-        NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Checkbox Item", false);
-        NativeDynamicItem<int> dynamicItem = new NativeDynamicItem<int>("Dynamic Item", 10);
-
-        //menu.Add(regularItem);
-        menu.Add(checkboxItem);
-        menu.Add(dynamicItem);
-
         pool.Add(menu);
         menu.Visible = true;
 
-        TeleportPlayer();
         Explode();
+        AddWeapons();
+        TeleportPlayer();
+        ResetWantedLevel();
+        InvinciblePlayer();
     }
 }
