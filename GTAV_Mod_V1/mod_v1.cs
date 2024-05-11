@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using GTA;
 using GTA.Math;
 using GTA.Native;
+using GTA.NaturalMotion;
 using GTA.UI;
 using LemonUI;
 using LemonUI.Menus;
@@ -18,6 +19,9 @@ public class mod_v1 : Script
 {
     private ObjectPool pool = new ObjectPool();
     private readonly NativeMenu menu = new NativeMenu("Mod_v1");
+
+    bool canUseExplosion = false;
+    bool explosionMenuCreated = false;
 
     public mod_v1()
     {
@@ -38,6 +42,10 @@ public class mod_v1 : Script
         if (e.KeyCode == Keys.F12)
         {
             menu.Visible = !menu.Visible;
+        }
+        if (e.KeyCode == Keys.E && Game.Player.IsAiming)
+        {
+            Explode();
         }
     }
 
@@ -64,18 +72,38 @@ public class mod_v1 : Script
 
     void Explode()
     {
-        NativeItem regularItem = new NativeItem("Explosion");
-        menu.Add(regularItem);
-        menu.ItemActivated += (sender, e) => {
-            if (e.Item == regularItem)
+        if(explosionMenuCreated)
+        {
+            if (canUseExplosion)
             {
-                //Vector3 playerPos = Game.Player.Character.ForwardVector;
-                //playerPos.X = playerPos.X + 2f;
-                Vector3 playerPos = Game.Player.Character.Position;
-                Vector3 playerFront = Game.Player.Character.FrontPosition;
-                World.AddExplosion(playerFront, ExplosionType.StickyBomb, 20f, 2f, null, true, false);
+                RaycastResult ab = World.GetCrosshairCoordinates();
+                World.AddExplosion(ab.HitPosition,
+                            ExplosionType.StickyBomb,
+                            20f,
+                            0.2f,
+                            null,
+                            true,
+                            false
+                            );
             }
-        };
+        }
+        else
+        {
+            NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Explosion","press E while aiming");
+            menu.Add(checkboxItem);
+            explosionMenuCreated = true;
+            checkboxItem.Activated += (sender, e) =>
+            {
+                if (checkboxItem.Checked)
+                {
+                    canUseExplosion = true;
+                }
+                else
+                {
+                    canUseExplosion = false;
+                }
+            };
+        }
     }
 
     void AddWeapons()
@@ -103,6 +131,8 @@ public class mod_v1 : Script
                 weaponsList.Add(weapon7);
                 Weapon weapon8 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.SpecialCarbineMk2, 999999, false, true);
                 weaponsList.Add(weapon8);
+                Weapon weapon9 = Game.Player.Character.Weapons.Give(weaponHash: WeaponHash.Molotov, 999999, false, true);
+                weaponsList.Add(weapon9);
                 for (int i = 0; i < weaponsList.Count; i++)
                 {
                     weaponsList[i].InfiniteAmmo = true;
@@ -112,15 +142,13 @@ public class mod_v1 : Script
         };
     }
 
-    void ResetWantedLevel()
+    void WantedLevel()
     {
-        NativeItem regularItem = new NativeItem("Reset wanted level");
-        menu.Add(regularItem);
-        menu.ItemActivated += (sender, e) => {
-            if (e.Item == regularItem)
-            {
-                Game.Player.WantedLevel = 0;
-            }
+        NativeListItem<int> list = new NativeListItem<int>("Wanted Level: ", 0 ,1, 2, 3, 4, 5);
+        menu.Add(list);
+        list.ItemChanged += (sender, e) =>
+        {
+            Game.Player.WantedLevel = list.SelectedIndex;
         };
     }
 
@@ -145,6 +173,39 @@ public class mod_v1 : Script
         };
     }
 
+    void SpawnVehicle()
+    {
+        NativeItem item = new NativeItem("Spawn Car");
+        menu.Add(item);
+        item.Activated += (sender, e) =>
+        {
+            Vehicle vehicle = World.CreateVehicle(
+                VehicleHash.Buffalo, Game.Player.Character.Position + Game.Player.Character.ForwardVector * 3.0f,
+                Game.Player.Character.Heading + 90);
+            vehicle.IsRadioEnabled = false;
+        };
+    }
+
+    void SpawnRandomNPC()
+    {
+        NativeItem regularItem = new NativeItem("Spawn Random NPC");
+        menu.Add(regularItem);
+        regularItem.Activated += (sender, e) =>
+        {
+            World.CreateRandomPed(Game.Player.Character.Position + Game.Player.Character.ForwardVector * 10f);
+        };
+    }
+
+    void pawnRandomNPC()
+    {
+        NativeItem regularItem = new NativeItem("aaaa");
+        menu.Add(regularItem);
+        regularItem.Activated += (sender, e) =>
+        {
+            World.CreateRandomPed(Game.Player.Character.Position + Game.Player.Character.ForwardVector * 10f);
+        };
+    }
+
     protected void CreateMenu()
     {
         pool.Add(menu);
@@ -152,8 +213,11 @@ public class mod_v1 : Script
 
         Explode();
         AddWeapons();
+        WantedLevel();
+        SpawnVehicle();
+        SpawnRandomNPC();
         TeleportPlayer();
-        ResetWantedLevel();
         InvinciblePlayer();
+        pawnRandomNPC();
     }
 }
