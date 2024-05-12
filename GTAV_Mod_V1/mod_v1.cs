@@ -22,6 +22,10 @@ public class mod_v1 : Script
 
     bool canUseExplosion = false;
     bool explosionMenuCreated = false;
+    bool canSuperJump = false;
+    bool canUseSuperSpeed = false;
+    bool canUseVehicleSuperSpeed = false;
+    bool VehicleSuperSpeedButtonPressed = false;
 
     public mod_v1()
     {
@@ -35,6 +39,28 @@ public class mod_v1 : Script
     private void OnTick(object sender, EventArgs e)
     {
         pool.Process();
+
+        if (canSuperJump)
+        {
+            Game.Player.SetSuperJumpThisFrame();
+        }
+        if (canUseSuperSpeed)
+        {
+            Game.Player.SetRunSpeedMultThisFrame(1.49f);
+            Function.Call(Hash.RESET_PLAYER_STAMINA, Game.Player); // infinite stamina
+        }
+        if (canUseVehicleSuperSpeed && VehicleSuperSpeedButtonPressed)
+        {
+            Vehicle a = Game.Player.Character.CurrentVehicle;
+            if (a != null && Game.Player.Character.IsInVehicle())
+            {
+                a.ForwardSpeed = 20f + a.Speed;
+                a.IsInvincible = true;
+                a.CanBeVisiblyDamaged = false;
+                Game.Player.Character.SetConfigFlag(32, false); // seatbelt always on
+                VehicleSuperSpeedButtonPressed = false;
+            }
+        }
     }
 
     private void OnKeyDown(object sender, KeyEventArgs e)
@@ -47,11 +73,20 @@ public class mod_v1 : Script
         {
             Explode();
         }
+        if (e.Shift)
+        {
+            VehicleSuperSpeedButtonPressed = true;
+            Notification.Show("yes");
+        }
     }
 
     private void OnKeyUp(object sender, KeyEventArgs e)
     {
-        
+        if (e.Shift)
+        {
+            VehicleSuperSpeedButtonPressed = false;
+            Notification.Show("no");
+        }
     }
 
     void TeleportPlayer()
@@ -182,7 +217,9 @@ public class mod_v1 : Script
             Vehicle vehicle = World.CreateVehicle(
                 VehicleHash.Buffalo, Game.Player.Character.Position + Game.Player.Character.ForwardVector * 3.0f,
                 Game.Player.Character.Heading + 90);
+            
             vehicle.IsRadioEnabled = false;
+            vehicle.ApplyForce(Vector3.WorldUp * -2.0f);
         };
     }
 
@@ -196,13 +233,54 @@ public class mod_v1 : Script
         };
     }
 
-    void pawnRandomNPC()
+    void SuperJump()
     {
-        NativeItem regularItem = new NativeItem("aaaa");
-        menu.Add(regularItem);
-        regularItem.Activated += (sender, e) =>
+        NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Super Jump");
+        menu.Add(checkboxItem);
+        checkboxItem.Activated += (sender, e) =>
         {
-            World.CreateRandomPed(Game.Player.Character.Position + Game.Player.Character.ForwardVector * 10f);
+            if (checkboxItem.Checked)
+            {
+                canSuperJump = true;
+            }
+            else
+            {
+                canSuperJump = false;
+            }
+        };
+    }
+
+    void SuperSpeed()
+    {
+        NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Super Speed");
+        menu.Add(checkboxItem);
+        checkboxItem.Activated += (sender, e) =>
+        {
+            if (checkboxItem.Checked)
+            {
+                canUseSuperSpeed = true;
+            }
+            else
+            {
+                canUseSuperSpeed = false;
+            }
+        };
+    }
+
+    void vehicleSpeedBoost()
+    {
+        NativeCheckboxItem checkboxItem = new NativeCheckboxItem("Vehicle Super Speed");
+        menu.Add(checkboxItem);
+        checkboxItem.Activated += (sender, e) =>
+        {
+            if (checkboxItem.Checked)
+            {
+                canUseVehicleSuperSpeed = true;
+            }
+            else
+            {
+                canUseVehicleSuperSpeed = false;
+            }
         };
     }
 
@@ -218,6 +296,8 @@ public class mod_v1 : Script
         SpawnRandomNPC();
         TeleportPlayer();
         InvinciblePlayer();
-        pawnRandomNPC();
+        SuperJump();
+        SuperSpeed();
+        vehicleSpeedBoost();
     }
 }
