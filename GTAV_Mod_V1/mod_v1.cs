@@ -49,6 +49,10 @@ public class mod_v1 : Script
             Game.Player.SetRunSpeedMultThisFrame(1.49f);
             Function.Call(Hash.RESET_PLAYER_STAMINA, Game.Player); // infinite stamina
         }
+        else
+        {
+            Game.Player.SetRunSpeedMultThisFrame(1f);
+        }
         if (canUseVehicleSuperSpeed && VehicleSuperSpeedButtonPressed)
         {
             Vehicle a = Game.Player.Character.CurrentVehicle;
@@ -60,6 +64,10 @@ public class mod_v1 : Script
                 Game.Player.Character.SetConfigFlag(32, false); // seatbelt always on
                 VehicleSuperSpeedButtonPressed = false;
             }
+        }
+        if (canUseExplosion)
+        {
+            ExplosivePunchAndBullets();
         }
     }
 
@@ -76,7 +84,6 @@ public class mod_v1 : Script
         if (e.Shift)
         {
             VehicleSuperSpeedButtonPressed = true;
-            Notification.Show("yes");
         }
     }
 
@@ -85,7 +92,6 @@ public class mod_v1 : Script
         if (e.Shift)
         {
             VehicleSuperSpeedButtonPressed = false;
-            Notification.Show("no");
         }
     }
 
@@ -100,6 +106,10 @@ public class mod_v1 : Script
                 if(blip != null)
                 {
                     Game.Player.Character.Position = blip.Position;
+                }
+                else
+                {
+                    Notification.Show("Set map marker before using teleport");
                 }
             }
         };
@@ -132,10 +142,12 @@ public class mod_v1 : Script
                 if (checkboxItem.Checked)
                 {
                     canUseExplosion = true;
+                    Notification.Show("Explosion effect Activated");
                 }
                 else
                 {
                     canUseExplosion = false;
+                    Notification.Show("Explosion effect Deactivated");
                 }
             };
         }
@@ -173,6 +185,7 @@ public class mod_v1 : Script
                     weaponsList[i].InfiniteAmmo = true;
                     weaponsList[i].InfiniteAmmoClip = true;
                 }
+                Notification.Show("Weapons added with unlimited ammo");
             }
         };
     }
@@ -219,7 +232,7 @@ public class mod_v1 : Script
                 Game.Player.Character.Heading + 90);
             
             vehicle.IsRadioEnabled = false;
-            vehicle.ApplyForce(Vector3.WorldUp * -2.0f);
+            Notification.Show("Vehicle spawned");
         };
     }
 
@@ -230,6 +243,7 @@ public class mod_v1 : Script
         regularItem.Activated += (sender, e) =>
         {
             World.CreateRandomPed(Game.Player.Character.Position + Game.Player.Character.ForwardVector * 10f);
+            Notification.Show("NPC Spawned");
         };
     }
 
@@ -242,10 +256,12 @@ public class mod_v1 : Script
             if (checkboxItem.Checked)
             {
                 canSuperJump = true;
+                Notification.Show("Super jump Activated");
             }
             else
             {
                 canSuperJump = false;
+                Notification.Show("Super jump Deactivated");
             }
         };
     }
@@ -259,10 +275,12 @@ public class mod_v1 : Script
             if (checkboxItem.Checked)
             {
                 canUseSuperSpeed = true;
+                Notification.Show("Super speed Activated");
             }
             else
             {
                 canUseSuperSpeed = false;
+                Notification.Show("Super speed Deactivated");
             }
         };
     }
@@ -276,11 +294,30 @@ public class mod_v1 : Script
             if (checkboxItem.Checked)
             {
                 canUseVehicleSuperSpeed = true;
+                Notification.Show("Vehicle super speed Activated");
             }
             else
             {
                 canUseVehicleSuperSpeed = false;
+                Notification.Show("Vehicle super speed Deactivated");
             }
+        };
+    }
+
+    private void ExplosivePunchAndBullets()
+    {
+        Game.Player.SetExplosiveMeleeThisFrame();
+        Game.Player.SetExplosiveAmmoThisFrame();
+    }
+
+    void AddMoney()
+    {
+        NativeItem item = new NativeItem("Add Money");
+        menu.Add(item);
+        item.Activated += (sender, e) =>
+        {
+            Game.Player.Money = Game.Player.Money + 1000000;
+            Notification.Show("Money Added");
         };
     }
 
@@ -299,5 +336,6 @@ public class mod_v1 : Script
         SuperJump();
         SuperSpeed();
         vehicleSpeedBoost();
+        AddMoney();
     }
 }
