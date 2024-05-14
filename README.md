@@ -4,7 +4,7 @@
 
 This mod is based on ScripthookV, UI is made using lemonUI. to use this mod download scripthookV dll files and copy paste the "Mod_v1" file along with it inside your Scripts folder in gta 5 game directory.
 
-Features:
+Features: (press F12 to use the mod menu in-game)
 1) Explosion - explosive punches and bullets, also press E while aiming to use a bigger explosion.
 2) Add weapons - adds several weapons with unlimited ammo
 3) can adjust wanted level
