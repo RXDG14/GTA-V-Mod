@@ -2,7 +2,9 @@
 
 ![ModPic](https://github.com/RXDG14/GTA-V-Mod/assets/54236165/ccacc5d3-83d7-4e4d-af5a-eea8dd71e294)
 
-This mod is based on ScripthookV, UI is made using lemonUI. to use this mod download scripthookV dll files and copy paste the "Mod_v1" file along with it inside your Scripts folder in gta 5 game directory.
+This mod is based on ScripthookV, UI is made using lemonUI.
+
+to use this mod install it via the GTA_MODV1_Installer.exe file, choose your GTA V game directory and it will install everything properly. press F12 in game to access the mod menu.
 
 Features: (press F12 to use the mod menu in-game)
 1) Explosion - explosive punches and bullets, also press E while aiming to use a bigger explosion.
